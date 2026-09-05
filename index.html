@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+
+<title>芝士主持人｜劇本殺清單</title>
+<meta name="description" content="今晚，你想收到什麼樣的故事？選一封信，找到適合你的劇本殺故事。">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yuki-vip.github.io/">
+<meta property="og:title" content="芝士主持人｜劇本殺清單">
+<meta property="og:description" content="今晚，你想收到什麼樣的故事？選一封信，找到適合你的劇本殺故事。">
+<meta property="og:image" content="https://yuki-vip.github.io/cover.jpg?v=8">
+<meta property="og:image:secure_url" content="https://yuki-vip.github.io/cover.jpg?v=8">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="芝士主持人 劇本殺清單">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="芝士主持人｜劇本殺清單">
+<meta name="twitter:description" content="今晚，你想收到什麼樣的故事？">
+<meta name="twitter:image" content="https://yuki-vip.github.io/cover.jpg?v=8">
+<link rel="canonical" href="https://yuki-vip.github.io/">
+
+<style>
+:root{
+  --ink:#654a56;
+  --muted:#9b7383;
+  --pink:#d77e9f;
+  --line:#ead6df;
+  --paper:#fffdf9;
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  min-height:100%;
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif
+}
+body{
+  min-height:100vh;
+  color:var(--ink);
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 14% 18%,rgba(255,215,101,.28),transparent 27%),
+    radial-gradient(circle at 86% 82%,rgba(230,166,192,.28),transparent 30%),
+    linear-gradient(155deg,#fffaf3,#fff3f8 58%,#fffaf1);
+}
+.stage{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:16px;
+  position:relative;
+  overflow:hidden;
+}
+.shell{
+  width:min(860px,96vw);
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.kicker{
+  font-size:11px;
+  letter-spacing:.18em;
+  font-weight:900;
+  color:#b57d92;
+}
+h1{
+  margin:7px 0 5px;
+  font-size:clamp(27px,5vw,46px);
+  line-height:1.15;
+}
+.sub{
+  margin:0 0 16px;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:750;
+}
+.envelope-wrap{perspective:1400px}
+.envelope{
+  width:min(700px,92vw);
+  height:clamp(340px,60vw,430px);
+  margin:auto;
+  position:relative;
+  transform-style:preserve-3d;
+  filter:drop-shadow(0 22px 26px rgba(94,59,75,.16));
+}
+.env-body{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  border-radius:22px;
+  border:1px solid #e7d2c3;
+  background:linear-gradient(145deg,#fffdf8,#fff4df);
+}
+.env-body:before,
+.env-body:after{
+  content:"";
+  position:absolute;
+  bottom:-1px;
+  width:55%;
+  height:72%;
+  z-index:1;
+  background:linear-gradient(145deg,#fff9ef,#fbe9da);
+}
+.env-body:before{
+  left:-2%;
+  clip-path:polygon(0 0,100% 100%,0 100%);
+}
+.env-body:after{
+  right:-2%;
+  clip-path:polygon(100% 0,0 100%,100% 100%);
+}
+.flap{
+  position:absolute;
+  left:0;right:0;top:0;
+  height:50%;
+  z-index:7;
+  transform-origin:top center;
+  transform:rotateX(0deg);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  background:linear-gradient(180deg,#fff2da,#ffdfb2);
+  border-top-left-radius:22px;
+  border-top-right-radius:22px;
+  transition:transform .72s cubic-bezier(.2,.8,.2,1);
+}
+.envelope.open .flap{transform:rotateX(180deg)}
+.address{
+  position:absolute;
+  top:19px;
+  left:24px;
+  z-index:8;
+  text-align:left;
+  color:#976f7f;
+  font-size:12px;
+  line-height:1.55;
+  font-weight:850;
+}
+.address b{color:#c66f91}
+.seal{
+  position:absolute;
+  left:50%;
+  top:42%;
+  z-index:9;
+  width:58px;height:58px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,#d67b9c,#b75e80);
+  color:#fff;
+  font-size:23px;
+  border:5px solid rgba(255,255,255,.75);
+  box-shadow:0 7px 16px rgba(139,72,99,.22);
+  transition:opacity .25s,transform .35s;
+}
+.envelope.open .seal{
+  opacity:0;
+  transform:translate(-50%,-50%) scale(.45) rotate(18deg);
+}
+.choice-panel{
+  position:absolute;
+  left:50%;
+  bottom:18px;
+  z-index:5;
+  width:86%;
+  transform:translateX(-50%);
+  border-radius:18px;
+  padding:14px;
+  background:rgba(255,255,255,.9);
+  border:1px solid #eedce4;
+  box-shadow:0 10px 24px rgba(103,72,87,.10);
+  backdrop-filter:blur(5px);
+}
+.choice-panel h2{
+  margin:0 0 4px;
+  font-size:clamp(18px,3vw,25px);
+}
+.choice-panel p{
+  margin:0 0 10px;
+  color:#a27b8b;
+  font-size:11px;
+}
+.choices{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+.choice{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:10px 7px;
+  color:#765563;
+  background:#fff;
+  font-family:inherit;
+  cursor:pointer;
+  transition:transform .16s,box-shadow .16s;
+}
+.choice:active{transform:translateY(2px) scale(.99)}
+.choice .icon{
+  display:block;
+  font-size:20px;
+  line-height:1;
+  margin-bottom:5px;
+}
+.choice strong{
+  display:block;
+  font-size:11px;
+  white-space:nowrap;
+}
+.choice small{
+  display:block;
+  margin-top:3px;
+  color:#aa8493;
+  font-size:9px;
+}
+.choice.a{background:#fffbed}
+.choice.b{background:#fff2f7}
+.choice.c{background:#f6f3ff}
+.choice.d{background:#f8f3f6}
+
+.letter-card{
+  position:absolute;
+  left:50%;
+  bottom:42px;
+  z-index:3;
+  width:70%;
+  height:48%;
+  transform:translateX(-50%) translateY(20%);
+  border-radius:18px;
+  border:1px solid #ecd8e1;
+  background:var(--paper);
+  box-shadow:0 14px 30px rgba(104,72,87,.13);
+  display:grid;
+  place-items:center;
+  padding:18px;
+  opacity:0;
+  transition:
+    transform .78s cubic-bezier(.2,.8,.2,1),
+    opacity .25s ease;
+}
+.envelope.open .letter-card{
+  transform:translateX(-50%) translateY(-68%);
+  opacity:1;
+  z-index:8;
+}
+.letter-card .symbol{
+  font-size:30px;
+  margin-bottom:5px;
+}
+.letter-card strong{
+  display:block;
+  font-size:clamp(19px,3vw,26px);
+}
+.letter-card span{
+  display:block;
+  margin-top:5px;
+  color:#9c7585;
+  font-size:12px;
+}
+.loading{
+  position:absolute;
+  inset:0;
+  z-index:12;
+  border-radius:22px;
+  display:grid;
+  place-items:center;
+  background:rgba(255,248,251,.84);
+  backdrop-filter:blur(4px);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .3s;
+}
+.envelope.go .loading{opacity:1}
+.loading .big{
+  font-size:32px;
+  animation:pulse .7s ease-in-out infinite alternate;
+}
+.loading div:last-child{
+  margin-top:6px;
+  font-weight:900;
+}
+@keyframes pulse{to{transform:scale(1.12)}}
+
+.petals{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+.petal{
+  position:absolute;
+  width:9px;height:6px;
+  border-radius:70% 30% 70% 30%;
+  background:rgba(230,151,183,.42);
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  from{transform:translate3d(0,-10vh,0) rotate(0)}
+  to{transform:translate3d(38px,112vh,0) rotate(420deg)}
+}
+
+.hint{
+  margin-top:12px;
+  color:#b18696;
+  font-size:10px;
+  font-weight:750;
+}
+
+@media(max-width:650px){
+  .stage{padding:12px}
+  .shell{width:100%}
+  h1{font-size:clamp(27px,8vw,39px)}
+  .sub{font-size:12px;margin-bottom:12px}
+  .envelope{
+    width:94vw;
+    height:clamp(350px,61vw,410px);
+  }
+  .address{top:16px;left:19px;font-size:11px}
+  .seal{top:36%;width:54px;height:54px;font-size:21px}
+  .choice-panel{
+    width:88%;
+    bottom:14px;
+    padding:12px 10px;
+  }
+  .choices{
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+  }
+  .choice{
+    padding:9px 6px;
+  }
+  .choice strong{font-size:10.5px}
+  .choice small{font-size:8.8px}
+  .choice-panel h2{font-size:20px}
+  .choice-panel p{font-size:10px}
+  .envelope.open .letter-card{
+    transform:translateX(-50%) translateY(-58%);
+  }
+}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="petals" id="petals"></div>
+
+  <div class="shell">
+    <div class="kicker">A LETTER FROM CHEESE</div>
+    <h1>今晚，你想收到什麼樣的故事？</h1>
+    <p class="sub">選一封信，信封打開後就直接前往屬於它的劇本。</p>
+
+    <div class="envelope-wrap">
+      <div class="envelope" id="envelope">
+        <div class="env-body"></div>
+        <div class="flap"></div>
+
+        <div class="address">
+          💌 To. 即將成為故事主角的你<br>
+          <b>From. 芝士 ୨୧</b>
+        </div>
+
+        <div class="seal">🧀</div>
+
+        <div class="choice-panel" id="choicePanel">
+          <h2>請選擇你的信件 ♡</h2>
+          <p>選好就直接出發，不用再按第二次。</p>
+          <div class="choices">
+            <button class="choice a" data-story="sweet">
+              <span class="icon">♡</span>
+              <strong>A｜甜甜的信</strong>
+              <small>歡樂・機制</small>
+            </button>
+            <button class="choice b" data-story="emotion">
+              <span class="icon">𐙚</span>
+              <strong>B｜心事的信</strong>
+              <small>情感・沉浸</small>
+            </button>
+            <button class="choice c" data-story="mystery">
+              <span class="icon">☾</span>
+              <strong>C｜神秘的信</strong>
+              <small>推理・還原</small>
+            </button>
+            <button class="choice d" data-story="midnight">
+              <span class="icon">❦</span>
+              <strong>D｜午夜的信</strong>
+              <small>恐怖・驚悚</small>
+            </button>
+          </div>
+        </div>
+
+        <div class="letter-card" id="letterCard">
+          <div>
+            <div class="symbol" id="letterSymbol">♡</div>
+            <strong id="letterTitle">甜甜的信</strong>
+            <span id="letterText">正在拆信……</span>
+          </div>
+        </div>
+
+        <div class="loading">
+          <div>
+            <div class="big" id="loadIcon">♡</div>
+            <div id="loadText">正在前往故事……</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hint">選擇後會看到信封打開、信紙升起，再自動進入對應劇本。</div>
+  </div>
+</div>
+
+<script>
+const envelope = document.getElementById('envelope');
+const letterSymbol = document.getElementById('letterSymbol');
+const letterTitle = document.getElementById('letterTitle');
+const letterText = document.getElementById('letterText');
+const loadIcon = document.getElementById('loadIcon');
+const loadText = document.getElementById('loadText');
+let leaving = false;
+
+const copy = {
+  sweet:{symbol:'♡',title:'甜甜的信',text:'今天就開一場會笑、會鬧、會玩得很開心的故事。'},
+  emotion:{symbol:'𐙚',title:'心事的信',text:'把情緒交給角色，去感受一段值得記住的故事。'},
+  mystery:{symbol:'☾',title:'神秘的信',text:'線索已經留下了。接下來，真相由你找出。'},
+  midnight:{symbol:'❦',title:'午夜的信',text:'燈暗下來之後，故事才正要開始。'}
+};
+
+document.querySelectorAll('.choice').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    if(leaving) return;
+    leaving = true;
+
+    const story = btn.dataset.story;
+    const c = copy[story];
+
+    letterSymbol.textContent = c.symbol;
+    letterTitle.textContent = c.title;
+    letterText.textContent = c.text;
+    loadIcon.textContent = c.symbol;
+    loadText.textContent = `${c.title}，正在前往故事……`;
+
+    envelope.classList.add('open');
+
+    setTimeout(()=>envelope.classList.add('go'), 700);
+
+    setTimeout(()=>{
+      location.href = `./index-1.html?story=${encodeURIComponent(story)}&v=8#scripts`;
+    }, 1450);
+  });
+});
+
+const petals = document.getElementById('petals');
+for(let i=0;i<18;i++){
+  const p=document.createElement('i');
+  p.className='petal';
+  p.style.left=(Math.random()*100)+'%';
+  p.style.animationDuration=(6+Math.random()*7)+'s';
+  p.style.animationDelay=(-Math.random()*9)+'s';
+  p.style.opacity=(.22+Math.random()*.45);
+  petals.appendChild(p);
+}
+</script>
+</body>
+</html>
